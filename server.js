@@ -3,7 +3,6 @@ const server = jsonServer.create();
 const path = require('path');
 const fs = require('fs');
 
-// Create a database object with proper structure
 const db = {
   "albums": [
     {
@@ -163,7 +162,6 @@ const db = {
   ]
 };
 
-// Create a temporary json file
 const dbPath = path.join(__dirname, 'db.json');
 fs.writeFileSync(dbPath, JSON.stringify(db));
 
@@ -176,7 +174,6 @@ server.use((req, res, next) => {
   next();
 });
 
-// Custom route for album songs
 server.get('/albums/:id/songs', (req, res) => {
   const albumId = parseInt(req.params.id);
   const songs = db.songs.filter(song => song.albumId === albumId);
