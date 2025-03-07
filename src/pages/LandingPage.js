@@ -8,7 +8,6 @@ const LandingPage = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 const [isFilterOpen, setIsFilterOpen] = useState(false);
-// Add this to your state in LandingPage.js
 const [activeFilterCount, setActiveFilterCount] = useState(0);
 
 
