@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# React Application Code Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+In this challenge, you are expected to build a React application based on [this Figma design](https://www.figma.com/design/JZyt0USoCGBmIfrEa2Y71t/Interview-UI-Design).
 
-In the project directory, you can run:
+You would need to code the following:
 
-### `npm start`
+1. Landing Page: the landing page will have a table that consolidates all music album data.
+2. Album Details Page: Clicking the "View" button in any row should take the user to the second page which provides the specific album information.
+3. Mock API Server: You are also expected to write your own mock API server which serves the data following the [API specification](./APIs.yml).
+4. Bonus: Type Filters: Adding Type filters on the UI is an additional bonus.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Timeline
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Try to complete this within a week.
 
-### `npm test`
+## Submission Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Please push your code (including the code to run the mock API server) to your **personal GitHub account** and share the repository link.
 
-### `npm run build`
+## Additional Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Libraries and Frameworks
+  - Use the ReactJS library to build the application.
+  - For routing between pages, React Router is recommended.
+  - For the mock API server, we suggest using json-server, but you can use other alternatives like Express.js or a custom mock server solution.
+- UI Design: Follow the [Figma design](https://www.figma.com/design/JZyt0USoCGBmIfrEa2Y71t/Interview-UI-Design) as closely as possible. Replicate the layout, colors, and other styles.

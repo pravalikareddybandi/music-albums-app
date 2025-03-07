@@ -39,8 +39,9 @@ const AlbumDetailsPage = () => {
 
   return (
     <div className="album-details-page">
-      <div className="header">
-        <div className="breadcrumb">
+      <div className="album-header"     
+      >
+        <div className="breadcrumb" background-color='#999999'>
           <Link to="/" className="breadcrumb-link">Overview</Link>
           <span className="breadcrumb-separator">&gt;</span>
           <span className="current-page">{album.name}</span>

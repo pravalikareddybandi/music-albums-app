@@ -7,6 +7,29 @@ const LandingPage = () => {
   const [selectedType, setSelectedType] = useState('');
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+const [isFilterOpen, setIsFilterOpen] = useState(false);
+// Add this to your state in LandingPage.js
+const [activeFilterCount, setActiveFilterCount] = useState(0);
+
+
+const [selectedTypes, setSelectedTypes] = useState({
+  Album: false,
+  EP: false,
+  Single: false
+});
+
+useEffect(() => {
+  const handleClickOutside = () => {
+    setIsFilterOpen(false);
+  };
+  
+  document.addEventListener('click', handleClickOutside);
+  
+  return () => {
+    document.removeEventListener('click', handleClickOutside);
+  };
+}, []);
+
   
 
   useEffect(() => {
@@ -25,21 +48,29 @@ const LandingPage = () => {
     fetchAlbums();
   }, []);
 
-  const handleTypeChange = (e) => {
-    setSelectedType(e.target.value);
+  const filteredAlbums = albums.filter(album => {
+    if (!selectedTypes.Album && !selectedTypes.EP && !selectedTypes.Single) {
+      return true;
+    }
+    return selectedTypes[album.type];
+  });
+  
+  const handleTypeChange = (type) => {
+    setSelectedTypes(prev => {
+      const newState = {
+        ...prev,
+        [type]: !prev[type]
+      };
+      
+      const count = Object.values(newState).filter(Boolean).length;
+      setActiveFilterCount(count);
+      
+      return newState;
+    });
   };
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
-  const filteredAlbums = albums.filter(album => {
-    const matchesType = selectedType ? album.type === selectedType : true;
-    
-    const matchesSearch = searchTerm.trim() === '' ? true : 
-      album.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      album.artist.toLowerCase().includes(searchTerm.toLowerCase());
-      
-    return matchesType && matchesSearch;
-  });
 
   return (
     <div className="landing-page">
@@ -64,13 +95,40 @@ const LandingPage = () => {
         </div>
 
         <div className="type-filter">
-          <select onChange={handleTypeChange} value={selectedType} className="filter-dropdown">
-            <option value="">Type</option>
-            <option value="EP">EP</option>
-            <option value="Album">Album</option>
-            <option value="Single">Single</option>
-          </select>
-        </div>
+  <div className="filter-dropdown" onClick={(e) => e.stopPropagation()}>
+  <div 
+  className={`dropdown-header ${activeFilterCount > 0 ? 'active-filter' : ''}`} 
+  onClick={() => setIsFilterOpen(!isFilterOpen)}
+>
+  Type {activeFilterCount > 0 && `(${activeFilterCount})`}
+</div>    {isFilterOpen && <div className="dropdown-menu">
+      <label className="filter-option">
+        <input 
+          type="checkbox" 
+          checked={selectedTypes.Album} 
+          onChange={() => handleTypeChange('Album')} 
+        />
+        <span>Album</span>
+      </label>
+      <label className="filter-option">
+        <input 
+          type="checkbox" 
+          checked={selectedTypes.EP} 
+          onChange={() => handleTypeChange('EP')} 
+        />
+        <span>EP</span>
+      </label>
+      <label className="filter-option">
+        <input 
+          type="checkbox" 
+          checked={selectedTypes.Single} 
+          onChange={() => handleTypeChange('Single')} 
+        />
+        <span>Single</span>
+      </label>
+    </div>}
+  </div>
+</div>
       </div>
 
       {loading ? (
